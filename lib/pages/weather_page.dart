@@ -15,11 +15,9 @@ class _WeatherPageState extends State<WeatherPage> {
 
   _fetchWeather() async {
     String cityName = await _weatherService.getCurrentCity();
-    print(cityName);
 
     try {
       final weather = await _weatherService.getWeather(cityName);
-      print(weather);
       setState(() {
         _weather = weather;
       });
