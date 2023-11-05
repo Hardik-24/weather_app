@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/model/weather_model.dart';
 import 'package:weather_app/services/weather_service.dart';
 import 'package:lottie/lottie.dart';
@@ -63,11 +64,23 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff164863),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(_weather?.cityName ?? 'loading city...'),
+          Text(
+            _weather?.cityName ?? 'loading city...',
+            style: GoogleFonts.poppins(color: Colors.white, fontSize: 45),
+          ),
+          const SizedBox(height: 70),
           Lottie.asset(getWeatherAnimation(_weather?.mainCondition)),
-          Text('${_weather?.temperature}^C'),
+          const SizedBox(height: 70),
+          Text(
+            '${_weather?.temperature}°',
+            style: GoogleFonts.poppins(
+                color: Color(0xffDDF2FD),
+                fontSize: 25,
+                fontWeight: FontWeight.w500),
+          ),
         ]),
       ),
     );
